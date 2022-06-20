@@ -1,0 +1,8 @@
+{
+  "name": "EteryunCore",
+  "version": "1.0.0",
+  "main": "com.eteryun.core.EteryunCore",
+  "mixins": [
+    "core.mixin.json"
+  ]
+}
