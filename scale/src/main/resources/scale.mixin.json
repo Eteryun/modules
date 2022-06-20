@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.eteryun.scale.mixin",
+  "target": "@env(DEFAULT)",
+  "verbose": true,
+  "compatibilityLevel": "JAVA_11",
+  "mixins": [
+    "command.SimpleCommandMapMixin",
+    "entity.PlayerMixin"
+  ]
+}
