@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ServerGamePacketListenerImplMixin {
     @Inject(method = "handleCustomPayload", at = @At("HEAD"), cancellable = true)
     private void handleCustomPayload(ServerboundCustomPayloadPacket pPacket, CallbackInfo ci){
-        if (pPacket.getIdentifier().equals(new ResourceLocation("com/eteryun", "packets"))) {
+        if (pPacket.getIdentifier().equals(new ResourceLocation("eteryun", "packets"))) {
             ci.cancel();
 
             FriendlyByteBuf byteBuf = pPacket.getData();

@@ -53,7 +53,7 @@ public class PacketsProtocol {
         // write custom data
         packet.write(byteBuf);
 
-        ClientboundCustomPayloadPacket customPayloadPacket = new ClientboundCustomPayloadPacket(new ResourceLocation("com/eteryun", "packets"), byteBuf);
+        ClientboundCustomPayloadPacket customPayloadPacket = new ClientboundCustomPayloadPacket(new ResourceLocation("eteryun", "packets"), byteBuf);
         ((CraftPlayer) player).getHandle().connection.send(customPayloadPacket);
     }
 

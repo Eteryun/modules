@@ -1,0 +1,9 @@
+{
+  "name": "EteryunBackTool",
+  "version": "1.0.0",
+  "main": "com.eteryun.backtool.BacktoolModule",
+  "dependencies": ["EteryunCore"],
+  "mixins": [
+    "backtool.mixin.json"
+  ]
+}
