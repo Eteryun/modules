@@ -3,7 +3,6 @@
   "minVersion": "0.8.5",
   "package": "com.eteryun.backtool.mixin",
   "target": "@env(DEFAULT)",
-  "verbose": true,
   "compatibilityLevel": "JAVA_11",
   "mixins": [
     "entity.EquipmentSlotMixin",
@@ -11,6 +10,6 @@
     "entity.InventoryMixin",
     "entity.LivingEntityMixin",
     "entity.PlayerMixin",
-    "inventory.InventoryMenuMixin",
+    "inventory.InventoryMenuMixin"
   ]
 }

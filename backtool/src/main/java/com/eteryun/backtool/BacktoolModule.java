@@ -1,14 +1,21 @@
 package com.eteryun.backtool;
 
-import com.eteryun.api.module.IModuleManager;
 import com.eteryun.api.module.Module;
 import com.eteryun.api.module.ModuleConfig;
+import com.eteryun.backtool.network.server.ServerboundPacketPlayerAction;
+import com.eteryun.core.network.PacketsProtocol;
+import net.minecraft.network.protocol.PacketFlow;
 import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Path;
 
 public class BacktoolModule extends Module {
-    public BacktoolModule(IModuleManager moduleManager, Logger logger, ModuleConfig config, Path path) {
-        super(moduleManager, logger, config, path);
+    public BacktoolModule(Logger logger, ModuleConfig config, Path path) {
+        super(logger, config, path);
+    }
+
+    @Override
+    public void onLoad() {
+        PacketsProtocol.registerPacket(PacketFlow.SERVERBOUND, ServerboundPacketPlayerAction.class, ServerboundPacketPlayerAction::new);
     }
 }

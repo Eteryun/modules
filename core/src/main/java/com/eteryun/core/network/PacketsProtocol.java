@@ -21,20 +21,17 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-
 public class PacketsProtocol {
-    private static final Map<PacketFlow, PacketSet> flows = new HashMap<>();
+    public static final Map<PacketFlow, PacketSet> flows = new HashMap<>();
 
-    public static void registerPackets() {
-//        flows.put(PacketFlow.CLIENTBOUND,
-//                new PacketSet()
-//                        .addPacket(ClientBoundPacket.class, ClientBoundPacket::new));
+    public static <P extends IPacket> void registerPacket(PacketFlow pDirection, Class<P> pPacketClass,
+                                      Function<FriendlyByteBuf, P> pDeserializer) {
+        PacketSet packetSet = flows.get(pDirection);
+        if (packetSet == null)
+            packetSet = new PacketSet();
 
-//        flows.put(PacketFlow.SERVERBOUND,
-//                new PacketSet()
-//                        .addPacket(ServerBoundPacket.class, ServerBoundPacket::new));
+        flows.put(pDirection, packetSet.addPacket(pPacketClass, pDeserializer));
     }
-
     @Nullable
     public static IPacket createPacket(PacketFlow pDirection, int pPacketId, FriendlyByteBuf pBuffer){
         return flows.get(pDirection).createPacket(pPacketId, pBuffer);
@@ -71,11 +68,8 @@ public class PacketsProtocol {
 
             if (j != -1) {
                 String s = "Packet " + pPacketClass + " is already registered to ID " + j;
-                EteryunCore.getInstance().getLogger().error(s);
                 throw new IllegalArgumentException(s);
             } else {
-                String s = "Packet " + pPacketClass + " registered to ID " + i;
-                EteryunCore.getInstance().getLogger().info(s);
                 this.idToDeserializer.add(pDeserializer);
                 return this;
             }
