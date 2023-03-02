@@ -2,6 +2,6 @@
   "name": "EteryunSkills",
   "version": "1.0.0",
   "main": "com.eteryun.skills.SkillsModule",
-  "dependencies": ["EteryunCore"],
+  "dependencies": ["EteryunCore", "EteryunStats"],
   "mixins": []
 }

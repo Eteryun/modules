@@ -42,7 +42,7 @@ public class ClientboundPacketPlayerSkills implements IPacket {
 
     }
 
-    public class Skill {
+    public static class Skill {
         private String id;
         private String icon;
         private double cost;

@@ -45,12 +45,13 @@ subprojects {
 tasks.create("buildAll") {
     group = "build"
     description = "Builds all subprojects"
-    dependsOn(subprojects.map { "${it.name}:remapJar" }.toList())
+    dependsOn(subprojects.map { "${it.name}:jar" }.toList())
 }
 
 tasks.create("copyAll") {
     group = "build"
     description = "Copies all subprojects jar files to the build folder"
+    dependsOn("buildAll")
     dependsOn(subprojects.map { "${it.name}:remapJar" }.toList())
     doFirst {
         subprojects.forEach {
