@@ -1,7 +1,7 @@
 {
-  "name": "EteryunStats",
+  "name": "EteryunSkills",
   "version": "1.0.0",
-  "main": "com.eteryun.stats.StatsModule",
+  "main": "com.eteryun.skills.SkillsModule",
   "dependencies": ["EteryunCore"],
   "mixins": []
 }
