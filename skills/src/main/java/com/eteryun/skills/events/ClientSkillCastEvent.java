@@ -1,4 +1,4 @@
-package com.eteryun.skills;
+package com.eteryun.skills.events;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;

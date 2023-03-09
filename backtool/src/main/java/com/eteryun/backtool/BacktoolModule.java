@@ -16,6 +16,6 @@ public class BacktoolModule extends Module {
 
     @Override
     public void onLoad() {
-        PacketsProtocol.registerPacket(PacketFlow.SERVERBOUND, ServerboundPacketPlayerAction.class, ServerboundPacketPlayerAction::new);
+        PacketsProtocol.registerPacket(0, PacketFlow.SERVERBOUND, ServerboundPacketPlayerAction.class, ServerboundPacketPlayerAction::new);
     }
 }

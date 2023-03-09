@@ -22,6 +22,7 @@ subprojects {
         maven { url = uri("https://repo.spongepowered.org/maven") }
         maven { url = uri("https://maven.elmakers.com/repository/") }
         maven { url = uri("https://papermc.io/repo/repository/maven-public/") }
+        maven { url = uri("https://repo.eteryun.com.br/") }
     }
 
     dependencies {
@@ -56,7 +57,7 @@ tasks.create("copyAll") {
     doFirst {
         subprojects.forEach {
             val jar = file("${it.buildDir}/libs/${it.name}-${it.project.version}.jar")
-            val buildJar = file("build/libs/${it.name}.jar")
+            val buildJar = file("E:\\eteryun\\server\\modules\\${it.name}.jar")
             System.out.println("Copying ${jar.absolutePath} to ${buildJar.absolutePath}")
             if (jar.exists()) {
                 buildJar.parentFile.mkdirs()

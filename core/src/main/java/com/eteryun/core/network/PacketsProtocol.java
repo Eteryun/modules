@@ -1,6 +1,5 @@
 package com.eteryun.core.network;
 
-import com.eteryun.core.EteryunCore;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -31,6 +30,15 @@ public class PacketsProtocol {
             packetSet = new PacketSet();
 
         flows.put(pDirection, packetSet.addPacket(pPacketClass, pDeserializer));
+    }
+
+    public static <P extends IPacket> void registerPacket(int id, PacketFlow pDirection, Class<P> pPacketClass,
+                                                          Function<FriendlyByteBuf, P> pDeserializer) {
+        PacketSet packetSet = flows.get(pDirection);
+        if (packetSet == null)
+            packetSet = new PacketSet();
+
+        flows.put(pDirection, packetSet.addPacket(id, pPacketClass, pDeserializer));
     }
     @Nullable
     public static IPacket createPacket(PacketFlow pDirection, int pPacketId, FriendlyByteBuf pBuffer){
@@ -65,6 +73,19 @@ public class PacketsProtocol {
                                                       Function<FriendlyByteBuf, P> pDeserializer) {
             int i = this.idToDeserializer.size();
             int j = this.classToId.put(pPacketClass, i);
+
+            if (j != -1) {
+                String s = "Packet " + pPacketClass + " is already registered to ID " + j;
+                throw new IllegalArgumentException(s);
+            } else {
+                this.idToDeserializer.add(pDeserializer);
+                return this;
+            }
+        }
+
+        public <P extends IPacket> PacketSet addPacket(int id, Class<P> pPacketClass,
+                                                       Function<FriendlyByteBuf, P> pDeserializer) {
+            int j = this.classToId.put(pPacketClass, id);
 
             if (j != -1) {
                 String s = "Packet " + pPacketClass + " is already registered to ID " + j;

@@ -1,7 +1,7 @@
 package com.eteryun.skills.network.server;
 
 import com.eteryun.core.network.IPacket;
-import com.eteryun.skills.ClientSkillCastEvent;
+import com.eteryun.skills.events.ClientSkillCastEvent;
 import net.minecraft.network.FriendlyByteBuf;
 import org.bukkit.Bukkit;
 

@@ -2,6 +2,5 @@
   "name": "EteryunStats",
   "version": "1.0.0",
   "main": "com.eteryun.stats.StatsModule",
-  "dependencies": ["EteryunCore"],
-  "mixins": []
+  "dependencies": ["EteryunCore"]
 }

@@ -2,6 +2,9 @@
   "name": "EteryunSkills",
   "version": "1.0.0",
   "main": "com.eteryun.skills.SkillsModule",
-  "dependencies": ["EteryunCore", "EteryunStats"],
-  "mixins": []
+  "dependencies": ["EteryunCore"],
+  "transforms": [
+    "com.eteryun.skills.transforms.PlayerDataTransform",
+    "com.eteryun.skills.transforms.RegisteredSkillTransform"
+  ]
 }

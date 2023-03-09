@@ -2,5 +2,6 @@
 cache/
 build/
 .idea/
+out/
 
 gradle.properties
