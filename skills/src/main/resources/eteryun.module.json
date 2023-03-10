@@ -5,6 +5,8 @@
   "dependencies": ["EteryunCore"],
   "transforms": [
     "com.eteryun.skills.transforms.PlayerDataTransform",
-    "com.eteryun.skills.transforms.RegisteredSkillTransform"
+    "com.eteryun.skills.transforms.RegisteredSkillTransform",
+    "com.eteryun.skills.transforms.ClassSkillTransform",
+    "com.eteryun.skills.transforms.SkillTransform"
   ]
 }
