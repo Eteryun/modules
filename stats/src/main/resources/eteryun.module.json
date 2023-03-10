@@ -2,5 +2,8 @@
   "name": "EteryunStats",
   "version": "1.0.0",
   "main": "com.eteryun.stats.StatsModule",
-  "dependencies": ["EteryunCore"]
+  "dependencies": ["EteryunCore"],
+  "transforms": [
+    "com.eteryun.stats.transforms.PlayerDataTransform"
+  ]
 }
