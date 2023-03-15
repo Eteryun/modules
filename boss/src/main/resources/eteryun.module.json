@@ -1,0 +1,11 @@
+{
+  "name": "EteryunBoss",
+  "version": "1.0.0",
+  "main": "com.eteryun.boss.BossModule",
+  "dependencies": ["EteryunCore"],
+  "transforms": [
+    "com.eteryun.boss.transforms.ActiveMobTransform",
+    "com.eteryun.boss.transforms.MobTypeTransform",
+    "com.eteryun.boss.transforms.MythicMobTransform"
+  ]
+}

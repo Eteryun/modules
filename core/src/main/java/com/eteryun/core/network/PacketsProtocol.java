@@ -51,6 +51,8 @@ public class PacketsProtocol {
     }
 
     public static void sendPacket(Player player, IPacket packet){
+        if (player == null)
+            return;
         FriendlyByteBuf byteBuf = new FriendlyByteBuf(Unpooled.buffer());
 
         // write id

@@ -5,7 +5,8 @@ sequenceOf(
         "scale",
         "backtool",
         "stats",
-        "skills"
+        "skills",
+        "boss"
 ).forEach {
     include("eteryun-$it")
     project(":eteryun-$it").projectDir = file(it)
