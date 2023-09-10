@@ -53,6 +53,10 @@ public class BossInfo {
     }
 
     public void removeAll() {
+        this.players.forEach(uuid -> {
+            ClientboundPacketBoss clientboundPacketBoss = ClientboundPacketBoss.createRemovePacket();
+            PacketsProtocol.sendPacket(Bukkit.getPlayer(uuid), clientboundPacketBoss);
+        });
         this.players.clear();
     }
 
@@ -61,6 +65,8 @@ public class BossInfo {
     }
 
     public void setHealth(double health) {
+        if (health == this.health)
+            return;
         this.health = health;
         this.players.forEach(uuid -> {
             ClientboundPacketBoss clientboundPacketBoss = ClientboundPacketBoss.createUpdateHealth(health, maxHealth);
@@ -77,6 +83,8 @@ public class BossInfo {
     }
 
     public void setMaxHealth(double maxHealth) {
+        if (maxHealth == this.maxHealth)
+            return;
         this.maxHealth = maxHealth;
         this.players.forEach(uuid -> {
             ClientboundPacketBoss clientboundPacketBoss = ClientboundPacketBoss.createUpdateHealth(health, maxHealth);
@@ -93,6 +101,8 @@ public class BossInfo {
     }
 
     public void setTitle(String title) {
+        if (title == this.title)
+            return;
         this.title = title;
         this.players.forEach(uuid -> {
             ClientboundPacketBoss clientboundPacketBoss = ClientboundPacketBoss.createUpdateTitle(title);
@@ -117,6 +127,8 @@ public class BossInfo {
     }
 
     public void setColor(String color) {
+        if (color == this.color)
+            return;
         this.color = color;
         this.players.forEach(uuid -> {
             ClientboundPacketBoss clientboundPacketBoss = ClientboundPacketBoss.createUpdateStyle(color, image);
@@ -133,6 +145,8 @@ public class BossInfo {
     }
 
     public void setImage(String image) {
+        if (image == this.image)
+            return;
         this.image = image;
         this.players.forEach(uuid -> {
             ClientboundPacketBoss clientboundPacketBoss = ClientboundPacketBoss.createUpdateStyle(color, image);
